@@ -665,8 +665,8 @@ if ismember('Si',Spe.PSpeciess)
 [Reactionlist]=add_reaction({'eh','Si'},{'Siii','eh','e','e'},8,[5.44e-16 5.29e-19],'ion','Freund90',Reactionlist,'izhGSSii');
 
 % doubly ionization #2  — from single 
-[Reactionlist]=add_reaction({'e','Sii'},{'Siii','e','e'},1,[1.24e-15 0.736 25.884],'ion','Djuric93',Reactionlist,'izcSii');
-[Reactionlist]=add_reaction({'eh','Sii'},{'Siii','eh','e'},8,[1.54e-14 9.50e-18],'ion','Djuric93',Reactionlist,'izhSii');
+[Reactionlist]=add_reaction({'e','Sii'},{'Siii','e','e'},1,[2.24e-14 0.5121 15.0678],'ion','Djuric93',Reactionlist,'izcSii');
+[Reactionlist]=add_reaction({'eh','Sii'},{'Siii','eh','e'},8,[6.55e-14 4.53e-17],'ion','Djuric93',Reactionlist,'izhSii');
 
 % Ar Interaction
 if ismember("Ar",Spe.PSpeciess)
