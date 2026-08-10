@@ -31,7 +31,7 @@
 path_discharge  = 'ArSi_JF_smoothed'; % subfolder of discharge where the discharge .mat file is located
 disch_mat       = 'ArSi_29_0A.mat'; % the name of the discharge .mat file (containing cv-waveforms)
 % Results folder
-path_results    = fullfile('results','ArSi_29_0A'); % path where the simulation output will be written to
+path_results    = fullfile('results','ArSi_29_0A_newR3'); % path where the simulation output will be written to
 % Parameter grid
 Pfit.names      = {'f','beta','r'}; % don't change this
 Pfit.p{1}       = 0.16:0.01:0.40; % parameter range for f (IR potential drop fraction)
