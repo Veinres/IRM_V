@@ -657,11 +657,11 @@ if ismember('Si',Spe.PSpeciess)
 
 % Ionisation
 % single ionization
-[Reactionlist]=add_reaction({'e','Si'},{'Sii','e','e'},1,[5.14e-15 0.598 7.5716],'ion','Freund90',Reactionlist,'izcSi');
-[Reactionlist]=add_reaction({'eh','Si'},{'Sii','eh','e'},8,[1.09e-14 1.06e-17],'ion','Freund90',Reactionlist,'izhSi');
+[Reactionlist]=add_reaction({'e','Si'},{'Sii','e','e'},1,[5.14e-14 0.598 7.5716],'ion','Freund90',Reactionlist,'izcSi');
+[Reactionlist]=add_reaction({'eh','Si'},{'Sii','eh','e'},8,[2.7375e-13 1.2647e-16],'ion','Freund90',Reactionlist,'izhSi');
 
 % doubly ionization
-[Reactionlist]=add_reaction({'e','Si'},{'Siii','e','e','e'},1,[9.79e-16 0.291 27.225],'ion','Freund90',Reactionlist,'izcGSSii');
+[Reactionlist]=add_reaction({'e','Si'},{'Siii','e','e','e'},1,[9.79e-15 0.291 27.225],'ion','Freund90',Reactionlist,'izcGSSii');
 [Reactionlist]=add_reaction({'eh','Si'},{'Siii','eh','e','e'},8,[5.44e-16 5.29e-19],'ion','Freund90',Reactionlist,'izhGSSii');
 
 % doubly ionization #2  — from single 
