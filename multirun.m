@@ -31,11 +31,11 @@
 path_discharge  = 'ArSi_JF_smoothed'; % subfolder of discharge where the discharge .mat file is located
 disch_mat       = 'ArSi_29_0A.mat'; % the name of the discharge .mat file (containing cv-waveforms)
 % Results folder
-path_results    = fullfile('results','ArSi_29_0A_newR3'); % path where the simulation output will be written to
+path_results    = fullfile('results','ArSi_29_0A_newR3_inf'); % path where the simulation output will be written to
 % Parameter grid
 Pfit.names      = {'f','beta','r'}; % don't change this
-Pfit.p{1}       = 0.16:0.07:0.40; % parameter range for f (IR potential drop fraction)
-Pfit.p{2}       = 0.2:0.01:.99; % parameter range for beta (back-attraction probability)
+Pfit.p{1}       = 0.16:0.01:0.35; % parameter range for f (IR potential drop fraction)
+Pfit.p{2}       = 0.3:0.01:.80; % parameter range for beta (back-attraction probability)
 Pfit.p{3}       = 0.7:0.1:0.7; % parameter range for r (electron recapture probability)
 % Discharge properties0.74
 F_flux_meas     = 0.44; % measured ionized flux fraction, can also be specified directly in the disch structure 
@@ -50,8 +50,8 @@ z1              = 2e-3; % distance of target facing border of IR from target
 z2              = 13e-3; % distance of substrate facing border of IR from target
 l1              = 0; % lenght in case of industrial rectangular target
 % Tolerances for the Ionized Flux Fraction
-F_flux_L_tol = 0.1; % lower tolerance (allowed deviation towards 0)
-F_flux_U_tol = 0.1; % upper tolerance (allowed deviation towards 1)
+F_flux_L_tol = inf; % lower tolerance (allowed deviation towards 0)
+F_flux_U_tol = inf; % upper tolerance (allowed deviation towards 1)
 
 
 %% Setup
