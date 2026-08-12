@@ -17,7 +17,7 @@ mCr = 8.6341548e-26;
 mMo = 1.6048807E-25;
 mZr = 1.51481e-25;
 mAl = 4.4803831e-26;
-mSi = 4.6637066e-26
+mSi = 4.6637066e-26;
 
 
 % temperatures
@@ -37,7 +37,7 @@ TCi = 11.055;
 TMo = 6.82*3/2;
 TZr = 9.375;
 TAl = 5.085;  %3.39 cohesive energy eV/atom *3/2
-TSi = 4.63*3/2
+TSi = 4.63*3/2;
 
 % others
 fdnames={'PSpecies','Names','List','M','Q','T','state','Energy','B','ID'};

@@ -13,7 +13,7 @@ Names=Spe.Names;  % ~~~~   is the only thing that needs input for this file
 % ~~~~~~~~~~~~~~~~~~~~~~
 
 %% Adding reactions
-Reactionlist=struct(); % creating an empty structure.   
+Reactionlist=struct(); % creating an empty structure.
 
 % add_reaction() requires:
 % (1) Input species
