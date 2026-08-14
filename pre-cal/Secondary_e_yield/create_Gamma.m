@@ -86,7 +86,8 @@ fGamma.D = cell(nS,1); % dirty % JF: added ,1 , as creating a 2D array was proba
 % known (either through measurement or different literature).
 
 gamma_clean_metal_Ar  = @(E) 1e-5*(E > 500).*(E - 500).^(1.2)./(1 + (E/70000).^(0.7)); % B12
-gamma_clean_metal_Ari = @(E) 0.07 + gamma_clean_metal_Ar(E); % B10 
+%gamma_clean_metal_Ari = @(E) 0.07 + gamma_clean_metal_Ar(E); % B10 Phelps
+gamma_clean_metal_Ari = @(E) 0.032*(0.78*27.63 - 2*4.73); % Baragiola
 gamma_dirty_metal_Ar  = @(E) 1e-4*(E > 90).*(E - 90).^(1.2)./(1 + (E/8000).^(1.5))...
                           + 7e-5*(E > 32).*(E - 32).^(1.2)./(1 + (E/2800).^(1.5)); % B17
 gamma_dirty_metal_Ari = @(E) 6e-3*E./(1 + (E/10))...
