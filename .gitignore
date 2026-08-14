@@ -5,3 +5,6 @@
 !species_reactions/
 !species_reactions/create_reactions_new.m
 !species_reactions/create_species_new.m
+!pre-cal/
+!pre-cal/Secondary_e_yield/
+!pre-cal/Secondary_e_yield/create_Gamma.m
