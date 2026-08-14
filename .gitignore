@@ -1,6 +1,5 @@
 *
 !.gitignore
-!multirun.m
 !ODEfile.m
 !species_reactions/
 !species_reactions/create_reactions_new.m
