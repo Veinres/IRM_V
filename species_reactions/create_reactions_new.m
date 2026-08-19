@@ -13,7 +13,7 @@ Names=Spe.Names;  % ~~~~   is the only thing that needs input for this file
 % ~~~~~~~~~~~~~~~~~~~~~~
 
 %% Adding reactions
-Reactionlist=struct(); % creating an empty structure.   
+Reactionlist=struct(); % creating an empty structure.
 
 % add_reaction() requires:
 % (1) Input species
@@ -657,16 +657,16 @@ if ismember('Si',Spe.PSpeciess)
 
 % Ionisation
 % single ionization
-[Reactionlist]=add_reaction({'e','Si'},{'Sii','e','e'},1,[5.14e-15 0.598 7.5716],'ion','Freund90',Reactionlist,'izcSi');
-[Reactionlist]=add_reaction({'eh','Si'},{'Sii','eh','e'},8,[1.09e-14 1.06e-17],'ion','Freund90',Reactionlist,'izhSi');
+[Reactionlist]=add_reaction({'e','Si'},{'Sii','e','e'},1,[5.14e-14 0.598 7.5716],'ion','Freund90',Reactionlist,'izcSi');
+[Reactionlist]=add_reaction({'eh','Si'},{'Sii','eh','e'},8,[2.7375e-13 1.2647e-16],'ion','Freund90',Reactionlist,'izhSi');
 
 % doubly ionization
-[Reactionlist]=add_reaction({'e','Si'},{'Siii','e','e','e'},1,[9.79e-16 0.291 27.225],'ion','Freund90',Reactionlist,'izcGSSii');
-[Reactionlist]=add_reaction({'eh','Si'},{'Siii','eh','e','e'},8,[5.44e-16 5.29e-19],'ion','Freund90',Reactionlist,'izhGSSii');
+[Reactionlist]=add_reaction({'e','Si'},{'Siii','e','e','e'},1,[9.79e-15 0.291 27.225],'ion','Freund90',Reactionlist,'izcGSSii');
+[Reactionlist]=add_reaction({'eh','Si'},{'Siii','eh','e','e'},8,[1.391e-14 6.347e-18],'ion','Freund90',Reactionlist,'izhGSSii');
 
 % doubly ionization #2  — from single 
-[Reactionlist]=add_reaction({'e','Sii'},{'Siii','e','e'},1,[1.24e-15 0.736 27.884],'ion','Djuric93',Reactionlist,'izcSii');
-[Reactionlist]=add_reaction({'eh','Sii'},{'Siii','eh','e'},8,[1.54e-14 9.50e-18],'ion','Djuric93',Reactionlist,'izhSii');
+[Reactionlist]=add_reaction({'e','Sii'},{'Siii','e','e'},1,[2.24e-14 0.5121 15.0678],'ion','Djuric93',Reactionlist,'izcSii');
+[Reactionlist]=add_reaction({'eh','Sii'},{'Siii','eh','e'},8,[6.55e-14 4.53e-17],'ion','Djuric93',Reactionlist,'izhSii');
 
 % Ar Interaction
 if ismember("Ar",Spe.PSpeciess)

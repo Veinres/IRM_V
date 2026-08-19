@@ -113,7 +113,7 @@ gamma   = Precal.gamma_eff(:,Udn);  % 2ndary e-yield
 
 %% Electron temperatures
 T_ec = min(100, max(0.3, T_ec, 'omitnan')); % cold electron temperature
-T_eh = 2/3 * F_Teh * Ud ; % hot electron temperature
+T_eh = max(2/3*F_Teh*Ud, 1); % hot electron temperature
 Teff = Reactype.eH*T_eh+(Reactype.eH==0)*T_ec; % effective temperature
 
 %% Effective costs of ionization
@@ -215,7 +215,7 @@ if ismember('Ar', In.Spe.Refill_gases)
         s_metal=s.Mo;
 
     elseif ismember ('Si',Spe.Names)
-        sigma_mAr=2.4707e-19;
+        sigma_mAr=2.275e-19;
         n_SiAll=n(s.Si)+n(s.Sii)+n(s.Siii);
         s_metal=s.Si;
     end
@@ -393,7 +393,7 @@ if isfield(In.IP, 'K1')
     K1 = In.IP.K1;
 end
 applied = K1*Uir*Id_p/q/V_IR; % eV/s/m3
-Ohm_heat = sum(I_se(Range.ion)./Q(Range.ion)*Ush/q/V_IR); % eV/s/m3
+Ohm_heat = sum(I_se(Range.ion).*Ush/q/V_IR); % eV/s/m3
 
 Rtmp = Rea.R;
 Rtmp(:,1:2) = false;
