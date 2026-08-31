@@ -29,16 +29,16 @@
 
 %% ArZr Discharge .mat file
 path_discharge  = 'ArSi_JF_smoothed'; % subfolder of discharge where the discharge .mat file is located
-disch_mat       = 'ArSi_25_20A.mat'; % the name of the discharge .mat file (containing cv-waveforms)
-% Results folder
-path_results    = fullfile('results6_15.8eV_Uhtc_20mm_Hagstrum_Baragiola','ArSi_25_20A'); % path where the simulation output will be written to
+disch_mat       = 'ArSi_35_20A.mat'; % the name of the discharge .mat file (containing cv-waveforms)
+% Results folder9
+path_results    = fullfile('results','ArSi_35_2'); % path where the simulation output will be written to
 % Parameter grid
 Pfit.names      = {'f','beta','r'}; % don't change this
-Pfit.p{1}       = 0.03:0.004:0.1; % parameter range for f (IR potential drop fraction)
-Pfit.p{2}       = 0.7:0.01:.99; % parameter range for beta (back-attraction probability)
+Pfit.p{1}       = 0.05:0.004:0.11; % parameter range for f (IR potential drop fraction)
+Pfit.p{2}       = 0.6:0.01:.9; % parameter range for beta (back-attraction probability)
 Pfit.p{3}       = 0.7:0.1:0.7; % parameter range for r (electron recapture probability)
 % Discharge properties0.74
-F_flux_meas     = 0.25; % measured ionized flux fraction, can also be specified directly in the disch structure 
+F_flux_meas     = 0.26; % measured ionized flux fraction, can also be specified directly in the disch structure 
 IP.disch_type   = 'ArSi'; % the type of discharge {ArTi, ArW, ArC, ArCu}
 IP.pressure     = 0.26; % process pressure, can also be specified directly in the disch structure
 IP.pulseLength  = 27.1e-6; % cutoff for back-attraction(should correspond to the end of the voltage pulse)

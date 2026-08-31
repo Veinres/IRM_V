@@ -1,0 +1,233 @@
+
+function [Ecc] = Ecc_Cal_Ar_2(T)
+%
+%
+%          A MATLAB script
+%
+%     A global model of argon discharge to investigate the variation of
+%     plasma parameters with EEDF
+%
+%
+%          Jon Tomas Gudmundsson,
+%
+%          2.  march 2000 revised for H and H2 29. November 2014
+%
+%           clear
+           plot_on = 1;
+           plot_ona = 1;
+%
+%          Set constants
+%
+           c = 3e8;
+           e= 1.6022e-19;
+           epsilon =8.854e-12;
+           me =9.1095e-31;
+           MMH = 40 * 1.6726e-27;
+           MMH2 = 2 * 1.6726e-27;
+
+x=1.0;
+%x = 1:1:2;  % x = 1 Maxwell, x = 2 Druyvesteyn
+ 
+
+Tel = T(:).';
+ 
+%
+%          Rate coefficients Argon
+%
+%
+%
+%          Ionization cross section taken from
+%          Straub H C, Renault P, Lindsay B G, Smith K A and
+%          Stebbings R F 1995 Phys. Rev. A 52 1115
+%
+           load straub95_iz
+	   Eniz = straub95_iz(:,1);
+	   sigiz = straub95_iz(:,2) * 1e-20;	  
+
+
+Energyaizl = Eniz; %
+sigmaaizl =  sigiz; % Unit
+bb = sigmaaizl(max(length(sigmaaizl)));
+Enexaiz = 15.76;
+Energyaizh = logspace(log10(1000),log10(10000),1000);
+sigmaaizhh =  (1./Energyaizh) .* (1/Enexaiz - 1./Energyaizh);
+sigmaaizh = bb * sigmaaizhh/sigmaaizhh(1);
+Energyaiz = [Energyaizl' Energyaizh];
+  sigmaaiz = [sigmaaizl' sigmaaizh];
+loglog(Energyaizl,sigmaaizl,'--',Energyaizh,sigmaaizh,'-',Energyaiz,sigmaaiz,'-.')
+Eniz = Energyaiz;
+sigiz = sigmaaiz;
+
+
+
+
+
+%
+%          Elastic scattering cross section taken from
+%          Hayashi M 2003 A set of electron-Ar cross sections with 25
+%          excited states 
+%   http://jilawww.colorado.edu/∼avp/collision data/electronneutral/hayashi.txt
+% 
+%
+           load hayashi_el
+	   Enel = hayashi_el(:,1);
+	   sigel = hayashi_el(:,2) * 1e-20;
+
+           load hayashi_ex1
+	   Enex1 = hayashi_ex1(:,1);
+	   sigex1 = hayashi_ex1(:,2) * 1e-20;
+
+           load hayashi_ex2
+	   Enex2 = hayashi_ex2(:,1);
+	   sigex2 = hayashi_ex2(:,2) * 1e-20;
+
+           load hayashi_ex3
+	   Enex3 = hayashi_ex3(:,1);
+	   sigex3 = hayashi_ex3(:,2) * 1e-20;
+	  
+           load hayashi_ex4
+	   Enex4 = hayashi_ex4(:,1);
+	   sigex4 = hayashi_ex4(:,2) * 1e-20;
+
+           load hayashi_ex5
+	   Enex5 = hayashi_ex5(:,1);
+	   sigex5 = hayashi_ex5(:,2) * 1e-20;
+
+           load hayashi_ex6
+	   Enex6 = hayashi_ex6(:,1);
+	   sigex6 = hayashi_ex6(:,2) * 1e-20;
+
+           load hayashi_ex7
+	   Enex7 = hayashi_ex7(:,1);
+	   sigex7 = hayashi_ex7(:,2) * 1e-20;
+	  
+           load hayashi_ex8
+	   Enex8 = hayashi_ex8(:,1);
+	   sigex8 = hayashi_ex8(:,2) * 1e-20;
+
+           load hayashi_ex9
+	   Enex9 = hayashi_ex9(:,1);
+	   sigex9 = hayashi_ex9(:,2) * 1e-20;
+
+           load hayashi_ex10
+	   Enex10 = hayashi_ex10(:,1);
+	   sigex10 = hayashi_ex10(:,2) * 1e-20;
+
+           load hayashi_ex11
+	   Enex11 = hayashi_ex11(:,1);
+	   sigex11 = hayashi_ex11(:,2) * 1e-20;
+
+           load hayashi_ex12
+	   Enex12 = hayashi_ex12(:,1);
+	   sigex12 = hayashi_ex12(:,2) * 1e-20;
+
+           load hayashi_ex13
+	   Enex13 = hayashi_ex13(:,1);
+	   sigex13 = hayashi_ex13(:,2) * 1e-20;
+	  
+           load hayashi_ex14
+	   Enex14 = hayashi_ex14(:,1);
+	   sigex14 = hayashi_ex14(:,2) * 1e-20;
+
+           load hayashi_ex15
+	   Enex15 = hayashi_ex15(:,1);
+	   sigex15 = hayashi_ex15(:,2) * 1e-20;
+
+           load hayashi_ex16
+	   Enex16 = hayashi_ex16(:,1);
+	   sigex16 = hayashi_ex16(:,2) * 1e-20;
+
+           load hayashi_ex17
+	   Enex17 = hayashi_ex17(:,1);
+	   sigex17 = hayashi_ex17(:,2) * 1e-20;
+	  
+           load hayashi_ex18
+	   Enex18 = hayashi_ex18(:,1);
+	   sigex18 = hayashi_ex18(:,2) * 1e-20;
+
+           load hayashi_ex19
+	   Enex19 = hayashi_ex19(:,1);
+	   sigex19 = hayashi_ex19(:,2) * 1e-20;
+
+           load hayashi_ex20
+	   Enex20 = hayashi_ex20(:,1);
+	   sigex20 = hayashi_ex20(:,2) * 1e-20;
+
+           load hayashi_ex21
+	   Enex21 = hayashi_ex21(:,1);
+	   sigex21 = hayashi_ex21(:,2) * 1e-20;
+
+           load hayashi_ex22
+	   Enex22 = hayashi_ex22(:,1);
+	   sigex22 = hayashi_ex22(:,2) * 1e-20;
+
+           load hayashi_ex23
+	   Enex23 = hayashi_ex23(:,1);
+	   sigex23 = hayashi_ex23(:,2) * 1e-20;
+	  
+           load hayashi_ex24
+	   Enex24 = hayashi_ex24(:,1);
+	   sigex24 = hayashi_ex24(:,2) * 1e-20;
+
+           load hayashi_ex25
+	   Enex25 = hayashi_ex25(:,1);
+	   sigex25 = hayashi_ex25(:,2) * 1e-20;
+
+ 
+%
+%          Rate coefficients argon
+%
+%
+
+           for ii=1:1:max(size(Tel))
+                         Kel(ii)=ratex(Enel,Tel(ii),sigel,x);
+			 Kiz(ii)=ratex(Eniz, Tel(ii),sigiz,x);
+			 Kex1(ii)=ratex(Enex1, Tel(ii),sigex1,x);
+                         Kex2(ii)=ratex(Enex2, Tel(ii),sigex2,x);
+	                 Kex3(ii)=ratex(Enex3, Tel(ii),sigex3,x);
+                         Kex4(ii)=ratex(Enex4, Tel(ii),sigex4,x);
+                         Kex5(ii)=ratex(Enex5, Tel(ii),sigex5,x);
+                         Kex6(ii)=ratex(Enex6, Tel(ii),sigex6,x);
+	                 Kex7(ii)=ratex(Enex7, Tel(ii),sigex7,x);
+                         Kex8(ii)=ratex(Enex8, Tel(ii),sigex8,x);
+                         Kex9(ii)=ratex(Enex9, Tel(ii),sigex9,x);
+                         Kex10(ii)=ratex(Enex10, Tel(ii),sigex10,x);
+                         Kex11(ii)=ratex(Enex11, Tel(ii),sigex11,x);
+                         Kex12(ii)=ratex(Enex12, Tel(ii),sigex12,x);
+	                 Kex13(ii)=ratex(Enex13, Tel(ii),sigex13,x);
+                         Kex14(ii)=ratex(Enex14, Tel(ii),sigex14,x);
+                         Kex15(ii)=ratex(Enex15, Tel(ii),sigex15,x);
+                         Kex16(ii)=ratex(Enex16, Tel(ii),sigex16,x);
+	                 Kex17(ii)=ratex(Enex17, Tel(ii),sigex17,x);
+                         Kex18(ii)=ratex(Enex18, Tel(ii),sigex18,x);
+                         Kex19(ii)=ratex(Enex19, Tel(ii),sigex19,x);
+                         Kex20(ii)=ratex(Enex20, Tel(ii),sigex20,x);
+                         Kex21(ii)=ratex(Enex21, Tel(ii),sigex21,x);
+                         Kex22(ii)=ratex(Enex22, Tel(ii),sigex22,x);
+	                 Kex23(ii)=ratex(Enex23, Tel(ii),sigex23,x);
+                         Kex24(ii)=ratex(Enex24, Tel(ii),sigex24,x);
+                         Kex25(ii)=ratex(Enex25, Tel(ii),sigex25,x);
+           end
+
+
+	   EcAr = 15.76 + Kel .* Kiz.^(-1) .* 3 * me/MMH .* Tel + (11.549 *  Kex1 + 11.624 * Kex2 +  11.723 * Kex3 +  11.828 * Kex4 +  13.074 * Kex5 + 13.204 * Kex6 + 13.227 * Kex7 + 13.276 * Kex8 + 13.299 * Kex9 + 13.396 * Kex10 + 13 * Kex11 + 13.3 * Kex12 + 13.5 * Kex13 + 13.8 * Kex14 + 13.9* Kex15 + 14.069 * Kex16 + 14.08 * Kex17 + 14.1 * Kex18 + 14.149 *Kex19 + 14.164 * Kex20 + 14.2 * Kex21 + 14.2 * Kex22 + 14.3 *Kex23 + 14.7  * Kex24 + 15.2 * Kex25) .*  Kiz.^(-1);
+
+
+Ecc = EcAr;
+
+
+figure(1)
+loglog(Tel,EcAr,'-')
+xlabel('$\mathrm{T}_\mathrm{e}$ $[\mathrm{V}]$','Interpreter','latex')
+ylabel('$\mathcal{E}_\mathrm{c}$ $[\mathrm{V}]$','Interpreter','latex')
+legend('Ar')
+axis([ 0.7 101 10 100000])
+FormatFig;
+
+fid = fopen('TelEcAr','w');
+for ii = 1:+1:(max(size(Tel))),
+     fprintf(fid,' %12.8f  %12.8f\n',Tel(ii),EcAr(ii));
+end
+
+
+end

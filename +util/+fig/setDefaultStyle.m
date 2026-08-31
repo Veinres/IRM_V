@@ -1,0 +1,11 @@
+set(0,'DefaultAxesFontSize',16);
+set(0,'DefaultTextFontSize',16);
+set(0,'DefaultLineLinewidth',1.5);
+set(0,'DefaultLineMarkerSize',10);
+set(0,'DefaultScatterLinewidth',1.5);
+set(0,'DefaultTextInterpreter','latex');
+set(0,'DefaultLegendInterpreter','latex');
+set(0,'DefaultAxesTickLabelInterpreter','latex');
+set(0,'DefaultAxesBox','on');
+set(0,'DefaultLegendBox','off');
+set(0,'DefaultAxesXGrid','on','DefaultAxesYGrid','on','DefaultAxesZGrid','on');
